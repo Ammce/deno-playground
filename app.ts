@@ -1,9 +1,5 @@
-const text = "Hello from Deno";
+import { serve } from "https://deno.land/std@0.122.0/http/server.ts";
 
-const encoder = new TextEncoder();
+serve(() => new Response("Hello World\n"));
 
-const encodedText = encoder.encode(text);
-
-Deno.writeFile("sample.txt", encodedText).then((data) => {
-  console.log(data);
-});
+console.log("http://localhost:8000/");
