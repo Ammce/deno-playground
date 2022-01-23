@@ -1,7 +1,6 @@
-import type { Todo } from "../types.ts";
+import TodoRepository from "../repositories/todo_repository.ts";
 
-let fakeTodos: Todo[] = [];
-fakeTodos = [{ id: "12321", title: "Open the dor" }];
+import type { Todo } from "../types.ts";
 
 interface IToDoService {
   getAllTodos: () => Todo[];
@@ -9,11 +8,16 @@ interface IToDoService {
 }
 
 export default class ToDoService implements IToDoService {
+  #todoRepitory: TodoRepository;
+  constructor(todoRepository: TodoRepository) {
+    this.#todoRepitory = todoRepository;
+  }
+
   getAllTodos() {
-    return fakeTodos;
+    return this.#todoRepitory.getAllTodos();
   }
 
   createTodo(todo: Todo) {
-    return todo;
+    return this.#todoRepitory.createTodo(todo);
   }
 }

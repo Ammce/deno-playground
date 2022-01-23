@@ -1,6 +1,6 @@
 import { Context } from "https://deno.land/x/oak/mod.ts";
-import { Todo } from "../types.ts";
 import ToDoService from "../services/todo_service.ts";
+import type { Todo } from "../types.ts";
 
 interface IToDoController {
   getAllTodos: (ctx: Context) => void;
