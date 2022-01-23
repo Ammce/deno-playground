@@ -8,8 +8,7 @@ export default class ToDoService {
     return fakeTodos;
   }
 
-  async createTodo(todo: Todo) {
-    fakeTodos = [...fakeTodos, todo];
-    return fakeTodos;
+  createTodo(todo: Todo) {
+    return todo;
   }
 }
